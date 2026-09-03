@@ -28,8 +28,6 @@ export default function Hero() {
         <div className="mt-10 flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row sm:justify-center">
           <a
             href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
             className="flex w-full items-center justify-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-sm font-semibold text-background shadow-[0_0_40px_-10px_rgba(139,107,255,0.6)] transition-transform hover:scale-[1.03] sm:w-auto"
           >
             <WhatsAppIcon className="h-4 w-4" />

@@ -4,6 +4,7 @@ import RevealOnScroll from "./RevealOnScroll";
 
 export default function Products() {
   const visibleProjects = projects.filter((project) => project.enabled && project.featured);
+  const [primary, secondary] = [visibleProjects.slice(0, 2), visibleProjects.slice(2)];
 
   return (
     <section id="productos" className="relative mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
@@ -17,12 +18,22 @@ export default function Products() {
       </RevealOnScroll>
 
       <div className="mt-12 grid grid-cols-1 gap-5 sm:mt-16 sm:grid-cols-2">
-        {visibleProjects.map((project, index) => (
+        {primary.map((project, index) => (
           <RevealOnScroll key={project.id} delay={index * 0.08}>
-            <ProductCard project={project} />
+            <ProductCard project={project} variant="primary" />
           </RevealOnScroll>
         ))}
       </div>
+
+      {secondary.length > 0 && (
+        <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
+          {secondary.map((project, index) => (
+            <RevealOnScroll key={project.id} delay={(primary.length + index) * 0.08}>
+              <ProductCard project={project} variant="secondary" />
+            </RevealOnScroll>
+          ))}
+        </div>
+      )}
     </section>
   );
 }

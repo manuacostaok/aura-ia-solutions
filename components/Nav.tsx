@@ -30,8 +30,6 @@ export default function Nav() {
 
         <a
           href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
           aria-label="Hablar por WhatsApp"
           className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background-elevated/60 text-foreground backdrop-blur-md transition-colors hover:border-violet/60 sm:hidden"
         >
@@ -40,8 +38,6 @@ export default function Nav() {
 
         <a
           href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
           className="hidden items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-semibold text-background transition-transform hover:scale-[1.03] sm:flex"
         >
           Contactar

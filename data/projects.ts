@@ -90,7 +90,7 @@ export const caseStudies: CaseStudy[] = [
     id: "de-paola",
     name: "De Paola Propiedades",
     badge: "CASO DE DESARROLLO",
-    description: "Experiencia web moderna para una empresa inmobiliaria.",
+    description: "Desarrollo web profesional para una empresa inmobiliaria.",
     url: "https://de-paola-prop.vercel.app/",
     ctaLabel: "Ver desarrollo →",
   },

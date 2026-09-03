@@ -29,12 +29,10 @@ export default function IdeaCTA() {
           <div className="relative mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
               href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
               className="flex w-full items-center justify-center gap-2 rounded-full bg-foreground px-8 py-4 text-sm font-semibold text-background shadow-[0_0_50px_-10px_rgba(139,107,255,0.7)] transition-transform hover:scale-[1.03] sm:w-auto"
             >
               <WhatsAppIcon className="h-4 w-4" />
-              Hablar con Aura
+              Hablar con Aura →
             </a>
 
             {hasInstagram ? (

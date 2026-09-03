@@ -16,7 +16,7 @@ export default function Services() {
           const Icon = iconByKey[service.icon];
           return (
             <RevealOnScroll key={service.id} delay={index * 0.06}>
-              <div className="glow-border group h-full rounded-2xl border border-border bg-background-elevated/40 p-6 transition-colors hover:border-border-strong">
+              <div className="glow-border group h-full rounded-2xl border border-border bg-background-elevated/40 p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-border-strong">
                 <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl border border-border bg-background/60 text-violet transition-transform group-hover:scale-105">
                   <Icon className="h-5 w-5" />
                 </div>

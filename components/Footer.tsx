@@ -27,8 +27,6 @@ export default function Footer() {
           )}
           <a
             href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
             aria-label="WhatsApp de Aura IA Solutions"
             className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted transition-colors hover:border-border-strong hover:text-foreground"
           >

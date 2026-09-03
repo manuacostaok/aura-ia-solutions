@@ -2,6 +2,8 @@ import { getWhatsAppUrl, WHATSAPP_MESSAGES } from "@/data/site-config";
 import { WhatsAppIcon } from "./Icons";
 import RevealOnScroll from "./RevealOnScroll";
 
+const FLOW_STEPS = ["Productos", "Catálogo", "WhatsApp", "Venta"];
+
 export default function CatalogSection() {
   const whatsappUrl = getWhatsAppUrl(WHATSAPP_MESSAGES.catalogo);
 
@@ -14,17 +16,17 @@ export default function CatalogSection() {
             className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-violet/20 blur-[100px]"
           />
 
-          <div className="relative grid grid-cols-1 gap-8 lg:grid-cols-[1.2fr_1fr] lg:items-center">
+          <div className="relative grid grid-cols-1 gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
             <div>
               <span className="inline-flex items-center rounded-full border border-border bg-background/60 px-3 py-1 text-[11px] font-semibold tracking-wide text-cyan">
-                AURA CATÁLOGOS
+                AURA CATÁLOGOS · PRODUCTO
               </span>
               <h2 className="mt-4 text-2xl font-bold leading-tight tracking-tight text-foreground sm:text-3xl">
                 Tu catálogo también puede vender por vos.
               </h2>
               <p className="mt-4 max-w-lg text-base leading-relaxed text-muted">
-                Creamos catálogos digitales profesionales para mostrar tus productos, recibir
-                consultas y convertir visitas en ventas.
+                Una experiencia digital profesional para mostrar tus productos, recibir consultas
+                y convertir visitas en ventas.
               </p>
 
               <ul className="mt-6 grid grid-cols-2 gap-x-6 gap-y-2 text-sm text-muted sm:max-w-md">
@@ -42,23 +44,26 @@ export default function CatalogSection() {
                 </li>
               </ul>
 
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-sm font-semibold text-background transition-transform hover:scale-[1.03] sm:w-auto"
-              >
-                <WhatsAppIcon className="h-4 w-4" />
-                Quiero mi catálogo
-              </a>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <a
+                  href={whatsappUrl}
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-sm font-semibold text-background transition-transform hover:scale-[1.03] sm:w-auto"
+                >
+                  <WhatsAppIcon className="h-4 w-4" />
+                  Quiero mi catálogo →
+                </a>
+                <a
+                  href="https://aura-catalogos-site.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-border-strong px-7 py-3.5 text-sm font-semibold text-foreground transition-colors hover:border-cyan/50 sm:w-auto"
+                >
+                  Ver demo →
+                </a>
+              </div>
             </div>
 
-            <a
-              href="https://aura-catalogos-site.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative block rounded-2xl border border-border bg-background/60 p-5 transition-colors hover:border-cyan/40"
-            >
+            <div className="rounded-2xl border border-border bg-background/60 p-5">
               <div className="flex items-center gap-1.5">
                 <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
                 <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
@@ -73,10 +78,16 @@ export default function CatalogSection() {
                   <div className="h-12 rounded-lg bg-white/5" />
                 </div>
               </div>
-              <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-cyan">
-                Ver Aura Catálogos →
-              </span>
-            </a>
+
+              <div className="mt-5 flex items-center justify-between border-t border-border pt-4">
+                {FLOW_STEPS.map((step, index) => (
+                  <div key={step} className="flex items-center gap-1.5">
+                    <span className="text-[11px] font-medium text-muted">{step}</span>
+                    {index < FLOW_STEPS.length - 1 && <span className="text-[11px] text-muted/40">→</span>}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </RevealOnScroll>

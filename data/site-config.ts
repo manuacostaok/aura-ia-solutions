@@ -15,7 +15,7 @@ export const GROWTRACK_PRO_URL = "https://growtrackpro.vercel.app/";
 export const siteConfig = {
   brand: "Aura IA Solutions",
   tagline: "Software · IA · Automatización",
-  headline: "Creamos soluciones digitales que hacen crecer negocios.",
+  headline: "Creamos tecnología que hace crecer negocios.",
   subheadline:
     "Software, automatizaciones y experiencias digitales diseñadas para transformar ideas en productos reales.",
   description:
@@ -27,16 +27,18 @@ export const siteConfig = {
 
 export const WHATSAPP_MESSAGES = {
   general: "Hola Aura IA Solutions, quiero consultar por una solución digital.",
-  catalogo: "Hola, quiero consultar por un catálogo digital.",
-  desarrollo: "Hola, tengo una idea y quiero consultar por un desarrollo a medida.",
+  catalogo: "Hola Aura IA Solutions, quiero consultar por un catálogo digital.",
+  desarrollo: "Hola Aura IA Solutions, tengo una idea y quiero consultar por un desarrollo a medida.",
 } as const;
 
 /**
- * Genera la URL de WhatsApp con el mensaje precargado.
+ * Genera la URL de wa.me con el mensaje precargado.
+ * Sanitiza el número (espacios, +, -, paréntesis) y codifica el mensaje.
  * Si no hay número configurado, devuelve "#" para no romper el render.
  */
 export function getWhatsAppUrl(message: string = WHATSAPP_MESSAGES.general): string {
-  if (!WHATSAPP_NUMBER) return "#";
-  const encoded = encodeURIComponent(message);
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
+  const sanitizedNumber = WHATSAPP_NUMBER.replace(/[\s+\-()]/g, "");
+  if (!sanitizedNumber) return "#";
+  const encodedMessage = encodeURIComponent(message);
+  return `https://wa.me/${sanitizedNumber}?text=${encodedMessage}`;
 }
