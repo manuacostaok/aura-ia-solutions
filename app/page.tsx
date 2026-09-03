@@ -8,6 +8,7 @@ import Nav from "@/components/Nav";
 import Products from "@/components/Products";
 import Services from "@/components/Services";
 import Spotlight from "@/components/Spotlight";
+import WhatsAppFloatingButton from "@/components/WhatsAppFloatingButton";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
         <IdeaCTA />
       </main>
       <Footer />
+      <WhatsAppFloatingButton />
     </>
   );
 }
