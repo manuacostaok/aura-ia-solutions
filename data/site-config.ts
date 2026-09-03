@@ -3,13 +3,11 @@
  * Completar WHATSAPP_NUMBER e INSTAGRAM_URL antes de publicar.
  */
 
-// Número de WhatsApp en formato internacional sin signos, ej: "5491122334455".
-// TODO: completar con el número real de Aura IA Solutions antes de publicar.
-export const WHATSAPP_NUMBER = "";
+// Número de WhatsApp en formato internacional sin signos: 54 9 + código de área + número.
+export const WHATSAPP_NUMBER = "5491165028141";
 
-// URL completa del perfil de Instagram, ej: "https://instagram.com/auraiasolutions".
-// TODO: completar con el usuario real de Instagram antes de publicar.
-export const INSTAGRAM_URL = "";
+// URL completa del perfil de Instagram.
+export const INSTAGRAM_URL = "https://instagram.com/aura.ia.solutions";
 
 export const TURNOS_AHORA_URL = "https://turnosahora.vercel.app/";
 export const GROWTRACK_PRO_URL = "https://growtrackpro.vercel.app/";
