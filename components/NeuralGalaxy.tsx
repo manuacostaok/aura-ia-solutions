@@ -78,9 +78,9 @@ export default function NeuralGalaxy() {
     composer.addPass(new RenderPass(scene, camera));
     const bloomPass = new UnrealBloomPass(
       new THREE.Vector2(container.clientWidth, container.clientHeight),
-      0.45,
       0.3,
-      0.42
+      0.25,
+      0.48
     );
     composer.addPass(bloomPass);
     composer.addPass(new OutputPass());

@@ -1,13 +1,11 @@
 "use client";
 
-import { animate, createScope, stagger, type Scope } from "animejs";
+import { animate, createScope, type Scope } from "animejs";
 import { useEffect, useRef } from "react";
 
 const BLOBS = [
-  { key: "1", className: "h-[34rem] w-[26rem] bg-violet/35", style: { top: "-6rem", left: "-14rem" } },
-  { key: "3", className: "h-[30rem] w-[24rem] bg-blue/25", style: { bottom: "-10rem", left: "-12rem" } },
-  { key: "2", className: "h-[34rem] w-[26rem] bg-blue/30", style: { top: "-4rem", right: "-14rem" } },
-  { key: "4", className: "h-[28rem] w-[22rem] bg-cyan/15", style: { bottom: "-8rem", right: "-10rem" } },
+  { key: "left", className: "h-[130vh] w-[24rem] bg-violet/45", style: { top: "-15vh", left: "-4rem" } },
+  { key: "right", className: "h-[130vh] w-[24rem] bg-cyan/35", style: { top: "-15vh", right: "-4rem" } },
 ];
 
 export default function AuroraBackground() {
@@ -20,15 +18,12 @@ export default function AuroraBackground() {
 
     scopeRef.current = createScope({ root: rootRef }).add(() => {
       animate("[data-aurora-blob]", {
-        translateX: () => [0, randomBetween(-140, 140), randomBetween(-90, 110), 0],
-        translateY: () => [0, randomBetween(-100, 100), randomBetween(-120, 120), 0],
-        rotate: () => [0, randomBetween(-18, 18), randomBetween(-10, 10), 0],
-        scale: () => [1, randomBetween(1.08, 1.32), 1],
-        opacity: () => [0.9, randomBetween(0.45, 0.95), 0.9],
-        duration: () => randomBetween(9000, 15000),
+        translateX: () => [0, randomBetween(-24, 24), randomBetween(-16, 16), 0],
+        translateY: () => [0, randomBetween(-50, 50), randomBetween(-60, 60), 0],
+        opacity: () => [0.55, randomBetween(0.4, 0.75), 0.55],
+        duration: () => randomBetween(18000, 26000),
         loop: true,
         ease: "inOutSine",
-        delay: stagger(400),
       });
     });
 
