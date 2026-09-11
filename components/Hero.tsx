@@ -1,14 +1,14 @@
 import { getWhatsAppUrl, siteConfig } from "@/data/site-config";
-import BrainScene from "./BrainScene";
 import { ArrowRightIcon, WhatsAppIcon } from "./Icons";
 import HeroReveal from "./HeroReveal";
+import NeuralGalaxy from "./NeuralGalaxy";
 
 export default function Hero() {
   const whatsappUrl = getWhatsAppUrl();
 
   return (
     <section id="top" className="relative flex min-h-[100svh] flex-col items-center justify-center px-5 pt-24 pb-16 text-center sm:px-8">
-      <BrainScene />
+      <NeuralGalaxy />
       <HeroReveal>
         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-background-elevated/60 px-4 py-1.5 text-xs font-medium tracking-wide text-muted backdrop-blur-md">
           <span className="h-1.5 w-1.5 rounded-full bg-cyan" />

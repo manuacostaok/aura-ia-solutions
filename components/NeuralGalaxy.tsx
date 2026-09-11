@@ -3,44 +3,47 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 
-function buildBrainGeometry() {
-  const geometry = new THREE.IcosahedronGeometry(1.9, 3);
-  const position = geometry.attributes.position;
-  const colorStart = new THREE.Color("#8b6bff");
-  const colorEnd = new THREE.Color("#4fd1ff");
-  const colors = new Float32Array(position.count * 3);
-  const vertex = new THREE.Vector3();
-  const tmpColor = new THREE.Color();
+const BRANCHES = 5;
+const SPIN = 1.35;
+const RANDOMNESS = 0.38;
+const RANDOMNESS_POWER = 3;
+const RADIUS = 2.6;
 
-  for (let i = 0; i < position.count; i++) {
-    vertex.fromBufferAttribute(position, i);
-    const { x: nx, y: ny, z: nz } = vertex;
+function buildGalaxyGeometry(count: number) {
+  const positions = new Float32Array(count * 3);
+  const colors = new Float32Array(count * 3);
+  const insideColor = new THREE.Color("#7fe6ff");
+  const outsideColor = new THREE.Color("#8b6bff");
+  const mixedColor = new THREE.Color();
 
-    const fold =
-      Math.sin(nx * 2.4 + ny * 1.6) * 0.5 +
-      Math.sin(ny * 3.1 - nz * 2.0) * 0.32 +
-      Math.sin(nz * 2.7 + nx * 1.2) * 0.24;
-    const fissure = Math.exp(-(nx * nx) / 0.05) * 0.55;
+  for (let i = 0; i < count; i++) {
+    const i3 = i * 3;
+    const radius = Math.pow(Math.random(), 1.6) * RADIUS;
+    const spinAngle = radius * SPIN;
+    const branchAngle = ((i % BRANCHES) / BRANCHES) * Math.PI * 2;
 
-    const offset = fold * 0.22 - fissure;
-    vertex.multiplyScalar(1 + offset / vertex.length());
-    vertex.y *= 0.82;
-    vertex.x *= 1.05;
-    position.setXYZ(i, vertex.x, vertex.y, vertex.z);
+    const randomX = Math.pow(Math.random(), RANDOMNESS_POWER) * (Math.random() < 0.5 ? 1 : -1) * RANDOMNESS * radius;
+    const randomY =
+      Math.pow(Math.random(), RANDOMNESS_POWER) * (Math.random() < 0.5 ? 1 : -1) * RANDOMNESS * radius * 0.4;
+    const randomZ = Math.pow(Math.random(), RANDOMNESS_POWER) * (Math.random() < 0.5 ? 1 : -1) * RANDOMNESS * radius;
 
-    const t = THREE.MathUtils.clamp((vertex.x + 1.6) / 3.2, 0, 1);
-    tmpColor.copy(colorStart).lerp(colorEnd, t);
-    colors[i * 3] = tmpColor.r;
-    colors[i * 3 + 1] = tmpColor.g;
-    colors[i * 3 + 2] = tmpColor.b;
+    positions[i3] = Math.cos(branchAngle + spinAngle) * radius + randomX;
+    positions[i3 + 1] = randomY;
+    positions[i3 + 2] = Math.sin(branchAngle + spinAngle) * radius + randomZ;
+
+    mixedColor.copy(insideColor).lerp(outsideColor, radius / RADIUS);
+    colors[i3] = mixedColor.r;
+    colors[i3 + 1] = mixedColor.g;
+    colors[i3 + 2] = mixedColor.b;
   }
 
-  geometry.computeVertexNormals();
+  const geometry = new THREE.BufferGeometry();
+  geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
   geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
   return geometry;
 }
 
-export default function BrainScene() {
+export default function NeuralGalaxy() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -48,6 +51,7 @@ export default function BrainScene() {
     if (!container || container.clientWidth === 0) return;
 
     const shouldReduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isCompact = window.matchMedia("(max-width: 640px)").matches;
 
     let renderer: THREE.WebGLRenderer;
     try {
@@ -58,35 +62,29 @@ export default function BrainScene() {
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
-    camera.position.set(0, 0, 6.2);
+    camera.position.set(0, 0.6, 6.2);
+    camera.lookAt(0, 0, 0);
 
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(container.clientWidth, container.clientHeight);
     container.appendChild(renderer.domElement);
 
-    const geometry = buildBrainGeometry();
-
-    const wireMaterial = new THREE.MeshBasicMaterial({
-      vertexColors: true,
-      wireframe: true,
-      transparent: true,
-      opacity: 0.34,
-      blending: THREE.AdditiveBlending,
-      depthWrite: false,
-    });
-    const pointsMaterial = new THREE.PointsMaterial({
-      vertexColors: true,
-      size: 0.032,
-      transparent: true,
-      opacity: 0.55,
-      blending: THREE.AdditiveBlending,
-      depthWrite: false,
+    const geometry = buildGalaxyGeometry(isCompact ? 4200 : 7200);
+    const material = new THREE.PointsMaterial({
+      size: 0.05,
       sizeAttenuation: true,
+      vertexColors: true,
+      transparent: true,
+      opacity: 0.95,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false,
     });
+    const points = new THREE.Points(geometry, material);
 
     const spinGroup = new THREE.Group();
-    spinGroup.add(new THREE.Mesh(geometry, wireMaterial));
-    spinGroup.add(new THREE.Points(geometry, pointsMaterial));
+    spinGroup.rotation.x = -0.5;
+    spinGroup.rotation.z = 0.18;
+    spinGroup.add(points);
 
     const tiltGroup = new THREE.Group();
     tiltGroup.add(spinGroup);
@@ -127,9 +125,9 @@ export default function BrainScene() {
         if (!isVisible || document.hidden) return;
         const delta = clock.getDelta();
 
-        spinGroup.rotation.y += delta * 0.16;
-        tiltGroup.rotation.x += (pointer.y * 0.22 - tiltGroup.rotation.x) * 0.04;
-        tiltGroup.rotation.z += (pointer.x * 0.12 - tiltGroup.rotation.z) * 0.04;
+        points.rotation.y += delta * 0.12;
+        tiltGroup.rotation.y += (pointer.x * 0.2 - tiltGroup.rotation.y) * 0.04;
+        tiltGroup.rotation.x += (pointer.y * 0.12 - tiltGroup.rotation.x) * 0.04;
 
         renderer.render(scene, camera);
       };
@@ -142,8 +140,7 @@ export default function BrainScene() {
       intersectionObserver.disconnect();
       resizeObserver.disconnect();
       geometry.dispose();
-      wireMaterial.dispose();
-      pointsMaterial.dispose();
+      material.dispose();
       renderer.dispose();
       if (renderer.domElement.parentNode === container) {
         container.removeChild(renderer.domElement);
@@ -155,7 +152,7 @@ export default function BrainScene() {
     <div
       ref={containerRef}
       aria-hidden="true"
-      className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[38%] [mask-image:linear-gradient(to_bottom,transparent_0%,#000_20%,#000_62%,transparent_100%)] sm:h-[54%]"
+      className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[42%] [mask-image:linear-gradient(to_bottom,transparent_0%,#000_20%,#000_62%,transparent_100%)] sm:h-[58%]"
     />
   );
 }
