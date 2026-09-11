@@ -20,14 +20,15 @@ export default function AuroraBackground() {
 
     scopeRef.current = createScope({ root: rootRef }).add(() => {
       animate("[data-aurora-blob]", {
-        translateX: () => [0, randomBetween(-70, 70), randomBetween(-40, 40), 0],
-        translateY: () => [0, randomBetween(-50, 50), randomBetween(-60, 60), 0],
-        scale: () => [1, randomBetween(1.02, 1.14), 1],
-        opacity: () => [1, randomBetween(0.75, 1), 1],
-        duration: () => randomBetween(22000, 34000),
+        translateX: () => [0, randomBetween(-140, 140), randomBetween(-90, 110), 0],
+        translateY: () => [0, randomBetween(-100, 100), randomBetween(-120, 120), 0],
+        rotate: () => [0, randomBetween(-18, 18), randomBetween(-10, 10), 0],
+        scale: () => [1, randomBetween(1.08, 1.32), 1],
+        opacity: () => [0.9, randomBetween(0.45, 0.95), 0.9],
+        duration: () => randomBetween(9000, 15000),
         loop: true,
         ease: "inOutSine",
-        delay: stagger(1200),
+        delay: stagger(400),
       });
     });
 
