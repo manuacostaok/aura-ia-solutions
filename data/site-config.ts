@@ -7,28 +7,28 @@
 export const WHATSAPP_NUMBER = "5491165028141";
 
 // URL completa del perfil de Instagram.
-export const INSTAGRAM_URL = "https://instagram.com/aura.ia.solutions";
+export const INSTAGRAM_URL = "https://instagram.com/aura.soft.solutions";
 
 export const TURNOS_AHORA_URL = "https://turnosahora.vercel.app/";
 export const GROWTRACK_PRO_URL = "https://growtrackpro.vercel.app/";
 
 export const siteConfig = {
-  brand: "Aura IA Solutions",
+  brand: "Aura Soft Solutions",
   tagline: "Software · IA · Automatización",
-  headline: "Creamos tecnología que hace crecer negocios.",
+  headline: "Creamos tecnología que hace crecer tu negocio.",
   subheadline:
     "Software, automatizaciones y experiencias digitales diseñadas para transformar ideas en productos reales.",
   description:
     "Desarrollo de software, automatizaciones, inteligencia artificial y soluciones digitales para negocios.",
-  url: "https://aura-ia-solutions.vercel.app",
+  url: "https://aura-soft-solutions.vercel.app",
   whatsapp: WHATSAPP_NUMBER,
   instagram: INSTAGRAM_URL,
 };
 
 export const WHATSAPP_MESSAGES = {
-  general: "Hola Aura IA Solutions, quiero consultar por una solución digital.",
-  catalogo: "Hola Aura IA Solutions, quiero consultar por un catálogo digital.",
-  desarrollo: "Hola Aura IA Solutions, tengo una idea y quiero consultar por un desarrollo a medida.",
+  general: "Hola Aura Soft Solutions, quiero consultar por una solución digital.",
+  catalogo: "Hola Aura Soft Solutions, quiero consultar por un catálogo digital.",
+  desarrollo: "Hola Aura Soft Solutions, tengo una idea y quiero consultar por un desarrollo a medida.",
 } as const;
 
 /**

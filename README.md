@@ -1,6 +1,6 @@
-# Aura IA Solutions — Link in Bio
+# Aura Soft Solutions — Link in Bio
 
-Landing "link in bio" premium para Aura IA Solutions, pensada como único link del perfil de Instagram. Next.js 16 (App Router) + Tailwind CSS v4 + Framer Motion.
+Landing "link in bio" premium para Aura Soft Solutions, pensada como único link del perfil de Instagram. Next.js 16 (App Router) + Tailwind CSS v4 + Framer Motion.
 
 ## Desarrollo
 
@@ -15,7 +15,7 @@ Abrir [http://localhost:3000](http://localhost:3000).
 | Variable | Estado |
 | --- | --- |
 | `WHATSAPP_NUMBER` | ✅ Completado: `5491165028141` |
-| `INSTAGRAM_URL` | ✅ Completado: `https://instagram.com/aura.ia.solutions` |
+| `INSTAGRAM_URL` | ✅ Completado: `https://instagram.com/aura.soft.solutions` |
 | `TURNOS_AHORA_URL` | ✅ Completado: `https://turnosahora.vercel.app/` |
 | `GROWTRACK_PRO_URL` | ✅ Completado: `https://growtrackpro.vercel.app/` |
 

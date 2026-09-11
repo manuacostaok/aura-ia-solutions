@@ -7,11 +7,15 @@ export default function Nav() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-background via-background/75 to-transparent"
+      />
+      <nav className="relative mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
         <Link
           href="#top"
           className="text-sm font-bold tracking-[0.2em] text-foreground"
-          aria-label="Aura IA Solutions - Inicio"
+          aria-label="Aura Soft Solutions - Inicio"
         >
           AURA
         </Link>

@@ -13,15 +13,14 @@ export default function Hero() {
           {siteConfig.tagline}
         </div>
 
-        <h1 className="mx-auto max-w-3xl text-4xl font-bold leading-[1.1] tracking-tight text-gradient sm:text-6xl">
-          AURA IA SOLUTIONS
+        <p className="text-xs font-bold uppercase tracking-[0.3em] text-muted/70">{siteConfig.brand}</p>
+
+        <h1 className="mx-auto mt-4 max-w-3xl text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-6xl">
+          Creamos tecnología que{" "}
+          <span className="text-gradient-brand">hace crecer</span> tu negocio.
         </h1>
 
-        <p className="mx-auto mt-6 max-w-2xl text-xl font-semibold leading-snug text-foreground sm:text-3xl">
-          {siteConfig.headline}
-        </p>
-
-        <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
+        <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
           {siteConfig.subheadline}
         </p>
 

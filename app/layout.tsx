@@ -11,13 +11,13 @@ const jakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: "Aura IA Solutions — Software, IA & Automatización",
+  title: "Aura Soft Solutions — Software, IA & Automatización",
   description: siteConfig.description,
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Aura IA Solutions — Software, IA & Automatización",
+    title: "Aura Soft Solutions — Software, IA & Automatización",
     description: siteConfig.description,
     url: siteConfig.url,
     siteName: siteConfig.brand,
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aura IA Solutions — Software, IA & Automatización",
+    title: "Aura Soft Solutions — Software, IA & Automatización",
     description: siteConfig.description,
   },
 };

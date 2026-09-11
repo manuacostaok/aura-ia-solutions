@@ -72,7 +72,7 @@ export default function OgImage() {
             letterSpacing: -2,
           }}
         >
-          AURA IA SOLUTIONS
+          AURA SOFT SOLUTIONS
         </div>
 
         <div
