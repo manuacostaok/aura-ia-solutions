@@ -14,7 +14,7 @@ export default function Nav() {
       <nav className="relative mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
         <Link
           href="#top"
-          className="text-sm font-bold tracking-[0.2em] text-foreground"
+          className="brand-aura text-sm font-bold tracking-[0.2em] text-foreground"
           aria-label="Aura Soft Solutions - Inicio"
         >
           AURA

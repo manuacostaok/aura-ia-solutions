@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className="relative mx-auto max-w-6xl px-5 py-10 sm:px-8">
       <div className="flex flex-col items-center gap-6 border-t border-border pt-8 sm:flex-row sm:items-center sm:justify-between">
         <div className="text-center sm:text-left">
-          <p className="text-sm font-bold tracking-[0.15em] text-foreground">AURA SOFT SOLUTIONS</p>
+          <p className="brand-aura text-sm font-bold tracking-[0.15em] text-foreground">AURA SOFT SOLUTIONS</p>
           <p className="mt-1 text-xs text-muted">Software · IA · Automatización</p>
         </div>
 

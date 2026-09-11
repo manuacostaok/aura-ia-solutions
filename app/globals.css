@@ -48,6 +48,21 @@ body {
   color: #fff;
 }
 
+/* ---------- Brand aura ---------- */
+
+.brand-aura {
+  animation: brand-aura-pulse 4.5s ease-in-out infinite;
+}
+
+@keyframes brand-aura-pulse {
+  0%, 100% {
+    text-shadow: 0 0 14px rgba(139, 107, 255, 0.45), 0 0 30px rgba(79, 125, 255, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 22px rgba(139, 107, 255, 0.7), 0 0 46px rgba(79, 125, 255, 0.38);
+  }
+}
+
 /* ---------- Aurora background ---------- */
 
 .aurora-blob {

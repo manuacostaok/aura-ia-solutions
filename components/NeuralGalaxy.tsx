@@ -2,6 +2,10 @@
 
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
+import { EffectComposer } from "three/addons/postprocessing/EffectComposer.js";
+import { OutputPass } from "three/addons/postprocessing/OutputPass.js";
+import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
+import { UnrealBloomPass } from "three/addons/postprocessing/UnrealBloomPass.js";
 
 const BRANCHES = 5;
 const SPIN = 1.35;
@@ -67,7 +71,19 @@ export default function NeuralGalaxy() {
 
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.setClearAlpha(0);
     container.appendChild(renderer.domElement);
+
+    const composer = new EffectComposer(renderer);
+    composer.addPass(new RenderPass(scene, camera));
+    const bloomPass = new UnrealBloomPass(
+      new THREE.Vector2(container.clientWidth, container.clientHeight),
+      0.45,
+      0.3,
+      0.42
+    );
+    composer.addPass(bloomPass);
+    composer.addPass(new OutputPass());
 
     const geometry = buildGalaxyGeometry(isCompact ? 4200 : 7200);
     const material = new THREE.PointsMaterial({
@@ -90,7 +106,7 @@ export default function NeuralGalaxy() {
     tiltGroup.add(spinGroup);
     scene.add(tiltGroup);
 
-    renderer.render(scene, camera);
+    composer.render();
 
     const pointer = { x: 0, y: 0 };
     function handlePointerMove(event: PointerEvent) {
@@ -110,7 +126,9 @@ export default function NeuralGalaxy() {
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
       renderer.setSize(width, height);
-      renderer.render(scene, camera);
+      composer.setSize(width, height);
+      bloomPass.setSize(width, height);
+      composer.render();
     });
     resizeObserver.observe(container);
 
@@ -129,7 +147,7 @@ export default function NeuralGalaxy() {
         tiltGroup.rotation.y += (pointer.x * 0.2 - tiltGroup.rotation.y) * 0.04;
         tiltGroup.rotation.x += (pointer.y * 0.12 - tiltGroup.rotation.x) * 0.04;
 
-        renderer.render(scene, camera);
+        composer.render();
       };
       frameId = requestAnimationFrame(animate);
     }
@@ -141,6 +159,7 @@ export default function NeuralGalaxy() {
       resizeObserver.disconnect();
       geometry.dispose();
       material.dispose();
+      composer.dispose();
       renderer.dispose();
       if (renderer.domElement.parentNode === container) {
         container.removeChild(renderer.domElement);
