@@ -1,25 +1,53 @@
-export default function AuroraBackground() {
-  return (
-    <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-background">
-      {/* Costado izquierdo */}
-      <div
-        className="aurora-blob animate-aurora-1 h-[34rem] w-[26rem] bg-violet/35"
-        style={{ top: "-6rem", left: "-14rem" }}
-      />
-      <div
-        className="aurora-blob animate-aurora-3 h-[30rem] w-[24rem] bg-blue/25"
-        style={{ bottom: "-10rem", left: "-12rem" }}
-      />
+"use client";
 
-      {/* Costado derecho */}
-      <div
-        className="aurora-blob animate-aurora-2 h-[34rem] w-[26rem] bg-blue/30"
-        style={{ top: "-4rem", right: "-14rem" }}
-      />
-      <div
-        className="aurora-blob animate-aurora-4 h-[28rem] w-[22rem] bg-cyan/15"
-        style={{ bottom: "-8rem", right: "-10rem" }}
-      />
+import { animate, createScope, stagger, type Scope } from "animejs";
+import { useEffect, useRef } from "react";
+
+const BLOBS = [
+  { key: "1", className: "h-[34rem] w-[26rem] bg-violet/35", style: { top: "-6rem", left: "-14rem" } },
+  { key: "3", className: "h-[30rem] w-[24rem] bg-blue/25", style: { bottom: "-10rem", left: "-12rem" } },
+  { key: "2", className: "h-[34rem] w-[26rem] bg-blue/30", style: { top: "-4rem", right: "-14rem" } },
+  { key: "4", className: "h-[28rem] w-[22rem] bg-cyan/15", style: { bottom: "-8rem", right: "-10rem" } },
+];
+
+export default function AuroraBackground() {
+  const rootRef = useRef<HTMLDivElement>(null);
+  const scopeRef = useRef<Scope | null>(null);
+
+  useEffect(() => {
+    const shouldReduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (shouldReduceMotion) return;
+
+    scopeRef.current = createScope({ root: rootRef }).add(() => {
+      animate("[data-aurora-blob]", {
+        translateX: () => [0, randomBetween(-70, 70), randomBetween(-40, 40), 0],
+        translateY: () => [0, randomBetween(-50, 50), randomBetween(-60, 60), 0],
+        scale: () => [1, randomBetween(1.02, 1.14), 1],
+        opacity: () => [1, randomBetween(0.75, 1), 1],
+        duration: () => randomBetween(22000, 34000),
+        loop: true,
+        ease: "inOutSine",
+        delay: stagger(1200),
+      });
+    });
+
+    return () => scopeRef.current?.revert();
+  }, []);
+
+  return (
+    <div ref={rootRef} aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-background">
+      {BLOBS.map((blob) => (
+        <div
+          key={blob.key}
+          data-aurora-blob
+          className={`aurora-blob ${blob.className}`}
+          style={blob.style}
+        />
+      ))}
     </div>
   );
+}
+
+function randomBetween(min: number, max: number) {
+  return Math.random() * (max - min) + min;
 }
