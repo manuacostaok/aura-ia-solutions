@@ -73,6 +73,24 @@ body {
   will-change: transform, opacity;
 }
 
+@keyframes aurora-drift-left {
+  0%, 100% { transform: translate(0, 0); opacity: 0.5; }
+  50% { transform: translate(18px, -40px); opacity: 0.72; }
+}
+
+@keyframes aurora-drift-right {
+  0%, 100% { transform: translate(0, 0); opacity: 0.4; }
+  50% { transform: translate(-16px, 36px); opacity: 0.6; }
+}
+
+.animate-aurora-drift-left {
+  animation: aurora-drift-left 24s ease-in-out infinite;
+}
+
+.animate-aurora-drift-right {
+  animation: aurora-drift-right 28s ease-in-out infinite;
+}
+
 /* ---------- Glass / cards ---------- */
 
 .glass {
