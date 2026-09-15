@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getWhatsAppUrl, WHATSAPP_MESSAGES } from "@/data/site-config";
 import { WhatsAppIcon } from "./Icons";
 import RevealOnScroll from "./RevealOnScroll";
@@ -63,23 +64,23 @@ export default function CatalogSection() {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-border bg-background/60 p-5">
-              <div className="flex items-center gap-1.5">
+            <div className="overflow-hidden rounded-2xl border border-border bg-background/60">
+              <div className="flex items-center gap-1.5 border-b border-border bg-background-elevated/60 px-4 py-2.5">
                 <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
                 <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
                 <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
               </div>
-              <div className="mt-4 space-y-2.5">
-                <div className="h-3 w-2/3 rounded-full bg-gradient-to-r from-white/20 to-white/5" />
-                <div className="h-20 w-full rounded-xl bg-gradient-to-br from-cyan/20 via-violet/15 to-transparent" />
-                <div className="grid grid-cols-3 gap-2">
-                  <div className="h-12 rounded-lg bg-white/5" />
-                  <div className="h-12 rounded-lg bg-white/5" />
-                  <div className="h-12 rounded-lg bg-white/5" />
-                </div>
+              <div className="relative aspect-[16/10] w-full">
+                <Image
+                  src="/screenshots/aura-catalogos.webp"
+                  alt="Captura de pantalla de Aura Catálogos"
+                  fill
+                  sizes="(min-width: 1024px) 40vw, 100vw"
+                  className="object-cover object-top"
+                />
               </div>
 
-              <div className="mt-5 flex items-center justify-between border-t border-border pt-4">
+              <div className="flex items-center justify-between border-t border-border p-4">
                 {FLOW_STEPS.map((step, index) => (
                   <div key={step} className="flex items-center gap-1.5">
                     <span className="text-[11px] font-medium text-muted">{step}</span>
