@@ -97,6 +97,28 @@ export function ArrowRightIcon({ className }: IconProps) {
   );
 }
 
+export function CatalogIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <path d="M4 9.5l1.4-4.6A1.5 1.5 0 016.84 3.8h10.32a1.5 1.5 0 011.44 1.1L20 9.5" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
+      <path d="M4 9.5h16v1a2.67 2.67 0 01-5.33 0 2.67 2.67 0 01-5.34 0A2.67 2.67 0 014 10.5v-1z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
+      <path d="M5.5 12.6V20h13v-7.4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M10 20v-4.5h4V20" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function BotIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <path d="M5 6.5h14a1.5 1.5 0 011.5 1.5v7a1.5 1.5 0 01-1.5 1.5h-6.2L9 20v-3.5H5A1.5 1.5 0 013.5 15V8A1.5 1.5 0 015 6.5z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
+      <circle cx="9" cy="11.5" r="1" fill="currentColor" />
+      <circle cx="15" cy="11.5" r="1" fill="currentColor" />
+      <path d="M12 6.5V4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 export const iconByKey = {
   code: CodeIcon,
   automation: AutomationIcon,
@@ -104,4 +126,6 @@ export const iconByKey = {
   web: WebIcon,
   systems: SystemsIcon,
   saas: SaasIcon,
+  catalog: CatalogIcon,
+  bot: BotIcon,
 } as const;

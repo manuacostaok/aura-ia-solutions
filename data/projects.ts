@@ -1,5 +1,9 @@
 import { TURNOS_AHORA_URL, GROWTRACK_PRO_URL } from "./site-config";
 
+/* -------------------------------------------------------------------------- */
+/* Plataformas y paneles propios (productos)                                  */
+/* -------------------------------------------------------------------------- */
+
 export type Project = {
   id: string;
   name: string;
@@ -68,71 +72,6 @@ export const projects: Project[] = [
     enabled: true,
   },
   {
-    id: "guapeton",
-    name: "Guapetón",
-    category: "Catalog & Commerce",
-    badge: "CATALOG & COMMERCE",
-    description: "Catálogo online y checkout con Mercado Pago para una marca de camas para mascotas.",
-    features: ["Catálogo de productos", "Checkout con Mercado Pago", "Panel administrativo"],
-    url: "https://guapet-on.vercel.app/",
-    image: "/screenshots/guapeton.webp",
-    ctaLabel: "Ver proyecto →",
-    featured: true,
-    enabled: true,
-  },
-  {
-    id: "christian-sebastian",
-    name: "Christian Sebastián",
-    category: "Photography Platform",
-    badge: "PORTFOLIO & BOOKING",
-    description: "Portfolio, consulta de disponibilidad y presupuesto online para un fotógrafo profesional.",
-    features: ["Portfolio y galerías privadas", "Presupuesto y disponibilidad online", "CRM de leads y clientes"],
-    url: "https://cristian-sebastian-fotografo.vercel.app/",
-    image: "/screenshots/christian-sebastian.webp",
-    ctaLabel: "Ver proyecto →",
-    featured: true,
-    enabled: true,
-  },
-  {
-    id: "arena-pro-gaming-club",
-    name: "Arena Pro Gaming Club",
-    category: "Gaming Venue",
-    badge: "GAMING CLUB",
-    description: "Demo comercial para un gaming club: torneos, eventos y comunidad en una web propia.",
-    features: ["Torneos y eventos", "Zonas del local", "Comunidad y galería"],
-    url: "https://arenaprogaming-club.vercel.app/",
-    image: "/screenshots/arena-pro-gaming-club.webp",
-    ctaLabel: "Ver proyecto →",
-    featured: true,
-    enabled: true,
-  },
-  {
-    id: "guacamaya-music",
-    name: "Guacamaya Music",
-    category: "Music Business Agency",
-    badge: "CREATIVE AGENCY",
-    description: "Landing de venta para una agencia de mentoría, distribución y marketing para artistas independientes.",
-    features: ["Método en pasos", "Reserva de masterclass", "Agenda de diagnóstico"],
-    url: "https://guacamayomusica.vercel.app/",
-    image: "/screenshots/guacamaya.webp",
-    ctaLabel: "Ver proyecto →",
-    featured: true,
-    enabled: true,
-  },
-  {
-    id: "de-paola",
-    name: "De Paola Propiedades",
-    category: "Real Estate Platform",
-    badge: "REAL ESTATE",
-    description: "Portal inmobiliario para una inmobiliaria líder en Zona Norte, con inventario propio y guía de barrios.",
-    features: ["Listado de propiedades", "Guía de zonas y barrios", "Tasación online"],
-    url: "https://de-paola-prop.vercel.app/",
-    image: "/screenshots/de-paola.webp",
-    ctaLabel: "Ver proyecto →",
-    featured: true,
-    enabled: true,
-  },
-  {
     id: "soulmates",
     name: "Soulmates",
     category: "Social Platform",
@@ -147,24 +86,97 @@ export const projects: Project[] = [
   },
 ];
 
-export type CaseStudy = {
+/* -------------------------------------------------------------------------- */
+/* Desarrollos reales: sitios web, catálogos y plataformas por rubro          */
+/* -------------------------------------------------------------------------- */
+
+export type RubroId = "inmobiliarias" | "fotografia" | "tiendas" | "fitness" | "musica";
+
+export const rubros: { id: RubroId; label: string }[] = [
+  { id: "inmobiliarias", label: "Inmobiliarias" },
+  { id: "fotografia", label: "Fotografía" },
+  { id: "tiendas", label: "Tiendas y catálogos" },
+  { id: "fitness", label: "Gimnasios y clubes" },
+  { id: "musica", label: "Música y artistas" },
+];
+
+export type Work = {
   id: string;
   name: string;
-  badge: string;
+  rubro: RubroId;
   description: string;
   url: string;
   image: string;
-  ctaLabel: string;
 };
 
-export const caseStudies: CaseStudy[] = [
+export const works: Work[] = [
   {
     id: "de-paola",
     name: "De Paola Propiedades",
-    badge: "CASO DE DESARROLLO",
-    description: "Desarrollo web profesional para una empresa inmobiliaria.",
+    rubro: "inmobiliarias",
+    description: "Sitio inmobiliario con inventario propio, guía de zonas y tasación online.",
     url: "https://de-paola-prop.vercel.app/",
     image: "/screenshots/de-paola.webp",
-    ctaLabel: "Ver desarrollo →",
+  },
+  {
+    id: "reciclaprop",
+    name: "ReciclaProp",
+    rubro: "inmobiliarias",
+    description: "Plataforma de flipping inmobiliario: búsqueda, calculadora de rentabilidad e IA de diseño.",
+    url: "https://recicla-prop-demo.vercel.app/",
+    image: "/screenshots/reciclaprop.webp",
+  },
+  {
+    id: "christian-sebastian",
+    name: "Christian Sebastián",
+    rubro: "fotografia",
+    description: "Portfolio, disponibilidad y presupuesto online para un fotógrafo profesional.",
+    url: "https://cristian-sebastian-fotografo.vercel.app/",
+    image: "/screenshots/christian-sebastian.webp",
+  },
+  {
+    id: "guapeton",
+    name: "Guapetón",
+    rubro: "tiendas",
+    description: "Catálogo online y checkout con Mercado Pago para una marca de camas para mascotas.",
+    url: "https://guapet-on.vercel.app/",
+    image: "/screenshots/guapeton.webp",
+  },
+  {
+    id: "her-off",
+    name: "HER OFF",
+    rubro: "fitness",
+    description: "Sitio para un gimnasio de entrenamiento funcional en Rosario: método, horarios y postulaciones.",
+    url: "https://herox-gym.vercel.app/",
+    image: "/screenshots/herox-gym.webp",
+  },
+  {
+    id: "arena-pro-gaming-club",
+    name: "Arena Pro Gaming Club",
+    rubro: "fitness",
+    description: "Sitio para un gaming club en Buenos Aires: torneos, eventos, zonas del local y reservas.",
+    url: "https://arenaprogaming-club.vercel.app/",
+    image: "/screenshots/arena-pro-gaming-club.webp",
+  },
+  {
+    id: "guacamaya-music",
+    name: "Guacamaya Music",
+    rubro: "musica",
+    description: "Landing de venta para una agencia de mentoría, distribución y marketing para artistas.",
+    url: "https://guacamayomusica.vercel.app/",
+    image: "/screenshots/guacamaya.webp",
   },
 ];
+
+export const rubroLabel = (id: RubroId) => rubros.find((rubro) => rubro.id === id)?.label ?? id;
+
+/** Resuelve un proyecto (web o plataforma) a un formato común para previews. */
+export type Showcase = { id: string; name: string; url: string; image: string };
+
+export function findShowcase(id: string): Showcase | undefined {
+  const work = works.find((item) => item.id === id);
+  if (work) return { id: work.id, name: work.name, url: work.url, image: work.image };
+  const project = projects.find((item) => item.id === id && item.enabled);
+  if (project) return { id: project.id, name: project.name, url: project.url, image: project.image };
+  return undefined;
+}

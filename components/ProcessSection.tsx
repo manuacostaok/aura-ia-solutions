@@ -20,7 +20,7 @@ export default function ProcessSection() {
       <RevealOnScroll className="mx-auto max-w-2xl text-center">
         <span className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan">Cómo trabajamos</span>
         <h2 className="mt-4 text-2xl font-bold tracking-tight text-foreground sm:text-4xl">
-          Sin vueltas, de la idea al sistema funcionando.
+          Sin vueltas, de la idea a la web funcionando.
         </h2>
       </RevealOnScroll>
 

@@ -8,11 +8,11 @@ export default function ProblemSection() {
         <RevealOnScroll>
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan">El diagnóstico</span>
           <h2 className="mt-4 text-2xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl">
-            Hacés todo a pulmón y el negocio no te da abasto.
+            Tus clientes te buscan online. ¿Qué encuentran?
           </h2>
           <p className="mt-5 max-w-md text-base leading-relaxed text-muted">
-            No es que te falte esfuerzo. Es que cada tarea manual que sostenés a mano le resta
-            tiempo a lo que realmente hace crecer el negocio.
+            No es que te falte esfuerzo. Es que tu presencia digital todavía no trabaja tan bien
+            como vos en el negocio.
           </p>
         </RevealOnScroll>
 

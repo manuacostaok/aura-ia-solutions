@@ -9,10 +9,10 @@ export default function Products() {
     <section id="productos" className="relative mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
       <RevealOnScroll className="mx-auto max-w-2xl text-center">
         <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-4xl">
-          Productos que ya están funcionando.
+          Plataformas y paneles que ya están funcionando.
         </h2>
         <p className="mt-3 text-base text-muted sm:text-lg">
-          No solo desarrollamos ideas. Construimos productos reales.
+          Además de webs, construimos sistemas de gestión propios: turnos, torneos, canchas y cultivos.
         </p>
       </RevealOnScroll>
 

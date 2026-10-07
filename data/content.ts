@@ -4,10 +4,11 @@ export type PainPoint = {
 };
 
 export const painPoints: PainPoint[] = [
-  { id: "manual", text: "Perdés horas en tareas que un sistema podría resolver solo." },
-  { id: "competencia", text: "Tu competencia ya tiene una web o un sistema que vende mientras vos dormís." },
-  { id: "tiempo", text: "No tenés tiempo de aprender a programar mientras administrás el negocio." },
+  { id: "competencia", text: "Tu competencia ya muestra sus trabajos y recibe consultas online mientras vos dormís." },
+  { id: "busqueda", text: "Te buscan en Google o Instagram y no encuentran fotos, precios ni cómo contactarte." },
+  { id: "plantilla", text: "Tu web de plantilla se ve igual que la de todos, y por eso nadie la recuerda." },
   { id: "agencias", text: "Las agencias grandes te tratan como un ticket más, no como un negocio real." },
+  { id: "manual", text: "Perdés horas respondiendo siempre las mismas consultas a mano." },
 ];
 
 export type ProcessStep = {
@@ -22,7 +23,7 @@ export const processSteps: ProcessStep[] = [
     id: "diagnostico",
     number: "01",
     title: "Diagnóstico",
-    description: "Entendemos tu negocio, tu operación actual y qué te está frenando.",
+    description: "Entendemos tu negocio, tu rubro y qué necesita tu web para traerte clientes.",
   },
   {
     id: "propuesta",
@@ -34,7 +35,7 @@ export const processSteps: ProcessStep[] = [
     id: "desarrollo",
     number: "03",
     title: "Desarrollo",
-    description: "Construimos el software, con avances que podés ver y probar en el camino.",
+    description: "Diseñamos y construimos, con avances que podés ver y probar en el camino.",
   },
   {
     id: "entrega",
@@ -64,13 +65,13 @@ export const differentiators: Differentiator[] = [
   },
   {
     id: "productos-propios",
-    title: "Productos propios funcionando",
-    description: "No solo prometemos: Torneame, Hay Cancha, Turnos Ahora y GrowTrack Pro ya están online.",
+    title: "Todo lo que mostramos funciona",
+    description: "Cada sitio y plataforma de esta página está online: podés abrirlo y usarlo ahora.",
   },
   {
     id: "medida",
     title: "Hecho a medida",
-    description: "Nada de plantillas genéricas. Cada sistema se piensa para tu negocio puntual.",
+    description: "Nada de plantillas genéricas. Cada web se piensa para tu negocio y tu rubro puntual.",
   },
   {
     id: "comunicacion",

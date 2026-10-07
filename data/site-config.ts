@@ -14,12 +14,13 @@ export const GROWTRACK_PRO_URL = "https://growtrackpro.vercel.app/";
 
 export const siteConfig = {
   brand: "Aura Soft Solutions",
-  tagline: "Software · IA · Automatización",
-  headline: "Creamos tecnología que hace crecer tu negocio.",
+  tagline: "Soluciones digitales",
+  headline: "Páginas web a medida para tu negocio.",
   subheadline:
-    "Software, automatizaciones y experiencias digitales diseñadas para transformar ideas en productos reales.",
+    "Diseñamos y desarrollamos sitios, catálogos y paneles con la identidad de tu marca, pensados para conseguirte clientes.",
+  title: "Aura Soft Solutions — Páginas web a medida, catálogos y tiendas online",
   description:
-    "Desarrollo de software, automatizaciones, inteligencia artificial y soluciones digitales para negocios.",
+    "Hacemos páginas web a medida, catálogos y tiendas online, y paneles de gestión para inmobiliarias, fotógrafos, gimnasios, marcas y negocios. También automatizaciones de consultas y WhatsApp Bots.",
   url: "https://aura-soft-solutions.vercel.app",
   whatsapp: WHATSAPP_NUMBER,
   instagram: INSTAGRAM_URL,
@@ -27,6 +28,7 @@ export const siteConfig = {
 
 export const WHATSAPP_MESSAGES = {
   general: "Hola Aura Soft Solutions, quiero consultar por una solución digital.",
+  web: "Hola Aura Soft Solutions, quiero consultar por una página web para mi negocio.",
   catalogo: "Hola Aura Soft Solutions, quiero consultar por un catálogo digital.",
   desarrollo: "Hola Aura Soft Solutions, tengo una idea y quiero consultar por un desarrollo a medida.",
 } as const;

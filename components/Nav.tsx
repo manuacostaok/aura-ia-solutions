@@ -21,11 +21,14 @@ export default function Nav() {
         </Link>
 
         <div className="hidden items-center gap-8 rounded-full border border-border bg-background-elevated/60 px-6 py-2.5 backdrop-blur-md sm:flex">
-          <a href="#productos" className="text-sm text-muted transition-colors hover:text-foreground">
-            Productos
-          </a>
           <a href="#servicios" className="text-sm text-muted transition-colors hover:text-foreground">
             Servicios
+          </a>
+          <a href="#desarrollos" className="text-sm text-muted transition-colors hover:text-foreground">
+            Desarrollos
+          </a>
+          <a href="#productos" className="text-sm text-muted transition-colors hover:text-foreground">
+            Plataformas
           </a>
           <a href="#contacto" className="text-sm text-muted transition-colors hover:text-foreground">
             Contacto

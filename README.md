@@ -25,6 +25,16 @@ Antes de deployar, actualizar también `siteConfig.url` con el dominio real de p
 
 En `data/projects.ts`, el proyecto `soulmates` tiene `enabled: false` y no se muestra en la sección de productos. Cambiar a `true` cuando esté listo para publicarse.
 
+## Cargar un desarrollo nuevo
+
+Todo sale de [`data/projects.ts`](data/projects.ts):
+
+- **Sitios web y catálogos por rubro** → agregar un objeto a `works` (aparece en "Desarrollos reales", con filtro por rubro y en la tira de capturas). Si el rubro no existe, sumarlo a `rubros`.
+- **Plataformas y paneles propios** → agregar a `projects` (sección "Plataformas").
+- Captura: `public/screenshots/<nombre>.webp`, 1200×750, comprimida (~40 KB) antes de commitear.
+
+Solo publicar acá sitios que estén online y terminados: los que dicen "ejemplo" o tienen contenido pendiente quedan afuera.
+
 ## Estructura
 
 ```

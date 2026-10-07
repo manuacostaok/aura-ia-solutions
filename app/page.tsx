@@ -1,5 +1,4 @@
 import AuroraBackground from "@/components/AuroraBackground";
-import CaseStudies from "@/components/CaseStudies";
 import CatalogSection from "@/components/CatalogSection";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
@@ -13,6 +12,7 @@ import Spotlight from "@/components/Spotlight";
 import TrustStrip from "@/components/TrustStrip";
 import WhatsAppFloatingButton from "@/components/WhatsAppFloatingButton";
 import WhyUs from "@/components/WhyUs";
+import Works from "@/components/Works";
 
 export default function Home() {
   return (
@@ -25,11 +25,11 @@ export default function Home() {
         <TrustStrip />
         <ProblemSection />
         <Services />
-        <Products />
+        <Works />
         <CatalogSection />
+        <Products />
         <ProcessSection />
         <WhyUs />
-        <CaseStudies />
         <IdeaCTA />
       </main>
       <Footer />
