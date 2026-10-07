@@ -60,7 +60,8 @@ export default function TrustStrip() {
       </div>
 
       <div className="marquee-fade overflow-hidden">
-        <div className="marquee-track marquee-track-slow">
+        {/* Duración proporcional a la cantidad de capturas: la velocidad no cambia al sumar sitios. */}
+        <div className="marquee-track marquee-track-slow" style={{ animationDuration: `${items.length * 6}s` }}>
           <Row items={items} />
           <Row items={items} hidden />
         </div>

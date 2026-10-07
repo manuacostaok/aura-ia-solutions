@@ -21,9 +21,9 @@ Abrir [http://localhost:3000](http://localhost:3000).
 
 Antes de deployar, actualizar también `siteConfig.url` con el dominio real de producción.
 
-## Activar Soulmates
+## Ocultar un proyecto
 
-En `data/projects.ts`, el proyecto `soulmates` tiene `enabled: false` y no se muestra en la sección de productos. Cambiar a `true` cuando esté listo para publicarse.
+Cada entrada de `projects` tiene `enabled`. Con `enabled: false` no se muestra ni en el carrusel de plataformas ni en la tira de capturas (útil para algo todavía no publicable). Los sitios de `works` se ocultan borrándolos de la lista.
 
 ## Cargar un desarrollo nuevo
 

@@ -72,17 +72,17 @@ export const projects: Project[] = [
     enabled: true,
   },
   {
-    id: "soulmates",
-    name: "Soulmates",
-    category: "Social Platform",
-    badge: "SOCIAL PLATFORM",
-    description: "Próximamente.",
-    features: [],
+    id: "el-detalle",
+    name: "El Detalle",
+    category: "Digital Gifts",
+    badge: "GESTOS DIGITALES",
+    description: "Regalos digitales para pareja, amigos y familia, que se entregan con un link o un código QR.",
+    features: ["Contador en vivo del tiempo juntos", "Link o QR para imprimir", "Sin registro, listo en minutos"],
     url: "https://soulmates-site.vercel.app/",
-    image: "",
+    image: "/screenshots/soulmates.webp",
     ctaLabel: "Ver proyecto →",
-    featured: false,
-    enabled: false,
+    featured: true,
+    enabled: true,
   },
 ];
 
@@ -90,14 +90,15 @@ export const projects: Project[] = [
 /* Desarrollos reales: sitios web, catálogos y plataformas por rubro          */
 /* -------------------------------------------------------------------------- */
 
-export type RubroId = "inmobiliarias" | "fotografia" | "tiendas" | "fitness" | "musica";
+export type RubroId = "inmobiliarias" | "fotografia" | "tiendas" | "fitness" | "musica" | "marketing";
 
 export const rubros: { id: RubroId; label: string }[] = [
-  { id: "inmobiliarias", label: "Inmobiliarias" },
-  { id: "fotografia", label: "Fotografía" },
+  { id: "inmobiliarias", label: "Inmobiliarias y arquitectura" },
   { id: "tiendas", label: "Tiendas y catálogos" },
+  { id: "marketing", label: "Marketing y publicidad" },
+  { id: "fotografia", label: "Fotografía" },
   { id: "fitness", label: "Gimnasios y clubes" },
-  { id: "musica", label: "Música y artistas" },
+  { id: "musica", label: "Música y eventos" },
 ];
 
 export type Work = {
@@ -165,6 +166,54 @@ export const works: Work[] = [
     description: "Landing de venta para una agencia de mentoría, distribución y marketing para artistas.",
     url: "https://guacamayomusica.vercel.app/",
     image: "/screenshots/guacamaya.webp",
+  },
+  {
+    id: "arqcam",
+    name: "ARQ.CAM",
+    rubro: "inmobiliarias",
+    description: "Sitio para un estudio de arquitectura: obras filtrables, slider del plano a la casa y pedido de presupuesto.",
+    url: "https://arqcam-demo-aura.vercel.app/",
+    image: "/screenshots/arqcam.webp",
+  },
+  {
+    id: "reld",
+    name: "Reld Refrigeración",
+    rubro: "tiendas",
+    description: "Tienda online de equipos e insumos de refrigeración: catálogo por rubro, carrito, cotización y precios en pesos o dólares.",
+    url: "https://reld-web-demo.vercel.app/",
+    image: "/screenshots/reld.webp",
+  },
+  {
+    id: "boutique-flower-baskets",
+    name: "Boutique Flower Baskets",
+    rubro: "tiendas",
+    description: "Sitio bilingüe (ES/EN) para una florería de Edmonton: galería de trabajos y armado de regalos por WhatsApp.",
+    url: "https://boutiqueflowerbaskets.vercel.app/",
+    image: "/screenshots/boutique-flowers.webp",
+  },
+  {
+    id: "condes",
+    name: "Condes Marketing Digital",
+    rubro: "marketing",
+    description: "Sitio para una agencia de marketing digital y diseño de Uruguay: servicios, trabajos y presupuesto por WhatsApp.",
+    url: "https://condes-demoweb.vercel.app/",
+    image: "/screenshots/condes.webp",
+  },
+  {
+    id: "creart-publicidad",
+    name: "CreArt Publicidad",
+    rubro: "marketing",
+    description: "Catálogo para una empresa de publicidad: gigantografía, textil, stands e inflables, con cotización por WhatsApp.",
+    url: "https://creart-publicidad.vercel.app/",
+    image: "/screenshots/creart.webp",
+  },
+  {
+    id: "dj-panda",
+    name: "DJ Panda",
+    rubro: "musica",
+    description: "Sitio para un DJ de bodas, corporativos y fiestas: servicios, sets y presupuesto por WhatsApp.",
+    url: "https://djpanda-aura-demo.vercel.app/",
+    image: "/screenshots/djpanda.webp",
   },
 ];
 

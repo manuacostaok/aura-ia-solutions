@@ -1,5 +1,6 @@
 import { projects } from "@/data/projects";
 import ProductCard from "./ProductCard";
+import ProductsCarousel from "./ProductsCarousel";
 import RevealOnScroll from "./RevealOnScroll";
 
 export default function Products() {
@@ -12,16 +13,21 @@ export default function Products() {
           Plataformas y paneles que ya están funcionando.
         </h2>
         <p className="mt-3 text-base text-muted sm:text-lg">
-          Además de webs, construimos sistemas de gestión propios: turnos, torneos, canchas y cultivos.
+          Además de webs, construimos sistemas propios: turnos, torneos, canchas, cultivos y regalos digitales.
         </p>
       </RevealOnScroll>
 
-      <div className="mt-12 grid grid-cols-1 gap-5 sm:mt-16 sm:grid-cols-2 lg:grid-cols-3">
-        {visibleProjects.map((project, index) => (
-          <RevealOnScroll key={project.id} delay={(index % 3) * 0.08}>
-            <ProductCard project={project} />
-          </RevealOnScroll>
-        ))}
+      <div className="mt-10 sm:mt-14">
+        <ProductsCarousel label="Plataformas y paneles">
+          {visibleProjects.map((project) => (
+            <li
+              key={project.id}
+              className="flex shrink-0 basis-[82%] snap-start sm:basis-[calc((100%-1.25rem)/2)] lg:basis-[calc((100%-2.5rem)/3)]"
+            >
+              <ProductCard project={project} />
+            </li>
+          ))}
+        </ProductsCarousel>
       </div>
     </section>
   );
