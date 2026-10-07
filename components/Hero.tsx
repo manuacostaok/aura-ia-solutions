@@ -45,7 +45,7 @@ export default function Hero() {
           style={step(2)}
           className="hero-in mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg"
         >
-          {siteConfig.subheadline}
+          <strong className="font-semibold text-foreground">{siteConfig.promise}</strong> {siteConfig.subheadline}
         </p>
 
         <ul style={step(3)} className="hero-in mt-8 flex flex-wrap items-center justify-center gap-2.5">

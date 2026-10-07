@@ -16,8 +16,9 @@ export const siteConfig = {
   brand: "Aura Soft Solutions",
   tagline: "Soluciones digitales",
   headline: "Páginas web a medida para tu negocio.",
+  promise: "Hacemos que tu negocio se note.",
   subheadline:
-    "Diseñamos y desarrollamos sitios, catálogos y paneles con la identidad de tu marca, pensados para conseguirte clientes.",
+    "Sitios, catálogos y paneles con la identidad de tu marca, pensados para conseguirte clientes.",
   title: "Aura Soft Solutions — Páginas web a medida, catálogos y tiendas online",
   description:
     "Hacemos páginas web a medida, catálogos y tiendas online, y paneles de gestión para inmobiliarias, fotógrafos, gimnasios, marcas y negocios. También automatizaciones de consultas y WhatsApp Bots.",

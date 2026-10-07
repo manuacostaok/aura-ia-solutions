@@ -88,13 +88,19 @@ export default function Works() {
               animate={{ opacity: 1, scale: 1 }}
               exit={shouldReduceMotion ? undefined : { opacity: 0, scale: 0.96 }}
               transition={spring}
+              className="group/work relative"
             >
+              {/* El aura: el halo del logo reaparece detrás del sitio que estás mirando. */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-violet/30 via-blue/15 to-cyan/25 opacity-0 blur-2xl transition-opacity duration-500 group-hover/work:opacity-100 group-focus-within/work:opacity-100"
+              />
               <a
                 href={work.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${work.name} — ${rubroLabel(work.rubro)} (se abre en una pestaña nueva)`}
-                className="glow-border group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-background-elevated/40 transition-all duration-300 hover:-translate-y-1 hover:border-border-strong hover:shadow-[0_20px_60px_-25px_rgba(139,107,255,0.5)]"
+                className="glow-border group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-background-elevated/70 transition-all duration-300 hover:-translate-y-1 hover:border-border-strong"
               >
                 <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-border bg-background">
                   <Image

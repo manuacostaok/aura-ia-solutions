@@ -16,14 +16,14 @@ export default function IdeaCTA() {
           />
 
           <h2 className="relative mx-auto max-w-2xl text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl">
-            ¿Tenés una idea?
+            Tu negocio,
             <br />
-            <span className="text-gradient-brand">Hagámosla realidad.</span>
+            <span className="text-gradient-brand">con aura.</span>
           </h2>
 
           <p className="relative mx-auto mt-5 max-w-lg text-base leading-relaxed text-muted sm:text-lg">
-            Desde una landing hasta una plataforma completa. Contanos qué necesitás y diseñamos la
-            solución.
+            Contanos qué hacés y armamos la web que lo hace destacar. Desde una landing hasta una
+            plataforma completa.
           </p>
 
           <div className="relative mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">

@@ -8,11 +8,11 @@ export default function WhyUs() {
         <RevealOnScroll>
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan">Por qué Aura</span>
           <h2 className="mt-4 text-2xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl">
-            No somos una agencia más.
+            El aura es lo que hace que te noten.
           </h2>
           <p className="mt-5 max-w-md text-base leading-relaxed text-muted">
-            Trabajamos con pocos clientes a la vez para poder prestar atención real a cada
-            proyecto, de principio a fin.
+            Es la presencia que separa a tu negocio del resto. La construimos con webs a medida y
+            pocos clientes a la vez, para cuidar cada proyecto de principio a fin.
           </p>
         </RevealOnScroll>
 
