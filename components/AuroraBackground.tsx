@@ -1,12 +1,12 @@
 const BLOBS = [
   {
     key: "left",
-    className: "h-[130vh] w-[24rem] bg-violet/45 animate-aurora-drift-left",
+    className: "h-[130vh] w-[9rem] bg-violet/45 animate-aurora-drift-left sm:w-[24rem]",
     style: { top: "-15vh", left: "-4rem" },
   },
   {
     key: "right",
-    className: "h-[130vh] w-[24rem] bg-cyan/35 animate-aurora-drift-right",
+    className: "h-[130vh] w-[9rem] bg-cyan/35 animate-aurora-drift-right sm:w-[24rem]",
     style: { top: "-15vh", right: "-4rem" },
   },
 ];

@@ -67,7 +67,7 @@ export default function Hero() {
         </p>
 
         <div style={step(3)} className="hero-in relative mt-6 w-full sm:mt-8">
-          <NeuralGalaxy className="inset-x-0 top-1/2 z-[2] h-[230%] -translate-y-1/2 [mask-image:linear-gradient(to_bottom,transparent_0%,#000_26%,#000_74%,transparent_100%)]" />
+          <NeuralGalaxy className="left-1/2 top-1/2 z-[2] h-[230%] w-screen -translate-x-1/2 -translate-y-1/2 [mask-image:radial-gradient(closest-side,#000_50%,transparent_100%)]" />
           <SitesOrbit sites={orbitSites} />
         </div>
 

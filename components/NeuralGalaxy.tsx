@@ -47,8 +47,25 @@ function buildGalaxyGeometry(count: number) {
   return geometry;
 }
 
+function buildStarSprite() {
+  const size = 64;
+  const canvas = document.createElement("canvas");
+  canvas.width = size;
+  canvas.height = size;
+  const context = canvas.getContext("2d");
+  if (context) {
+    const gradient = context.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2);
+    gradient.addColorStop(0, "rgba(255,255,255,1)");
+    gradient.addColorStop(0.35, "rgba(255,255,255,0.55)");
+    gradient.addColorStop(1, "rgba(255,255,255,0)");
+    context.fillStyle = gradient;
+    context.fillRect(0, 0, size, size);
+  }
+  return new THREE.CanvasTexture(canvas);
+}
+
 const DEFAULT_POSITION =
-  "inset-x-0 top-0 h-[42%] [mask-image:linear-gradient(to_bottom,transparent_0%,#000_20%,#000_62%,transparent_100%)] sm:h-[58%]";
+  "inset-x-0 top-0 h-[42%] [mask-image:radial-gradient(closest-side,#000_55%,transparent_100%)] sm:h-[58%]";
 
 export default function NeuralGalaxy({ className = DEFAULT_POSITION }: { className?: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -89,8 +106,10 @@ export default function NeuralGalaxy({ className = DEFAULT_POSITION }: { classNa
     composer.addPass(new OutputPass());
 
     const geometry = buildGalaxyGeometry(isCompact ? 4200 : 7200);
+    const sprite = buildStarSprite();
     const material = new THREE.PointsMaterial({
-      size: 0.05,
+      size: isCompact ? 0.06 : 0.075,
+      map: sprite,
       sizeAttenuation: true,
       vertexColors: true,
       transparent: true,
@@ -162,6 +181,7 @@ export default function NeuralGalaxy({ className = DEFAULT_POSITION }: { classNa
       resizeObserver.disconnect();
       geometry.dispose();
       material.dispose();
+      sprite.dispose();
       composer.dispose();
       renderer.dispose();
       if (renderer.domElement.parentNode === container) {
