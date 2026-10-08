@@ -47,7 +47,10 @@ function buildGalaxyGeometry(count: number) {
   return geometry;
 }
 
-export default function NeuralGalaxy() {
+const DEFAULT_POSITION =
+  "inset-x-0 top-0 h-[42%] [mask-image:linear-gradient(to_bottom,transparent_0%,#000_20%,#000_62%,transparent_100%)] sm:h-[58%]";
+
+export default function NeuralGalaxy({ className = DEFAULT_POSITION }: { className?: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -171,7 +174,7 @@ export default function NeuralGalaxy() {
     <div
       ref={containerRef}
       aria-hidden="true"
-      className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[42%] [mask-image:linear-gradient(to_bottom,transparent_0%,#000_20%,#000_62%,transparent_100%)] sm:h-[58%]"
+      className={`pointer-events-none absolute ${className}`}
     />
   );
 }

@@ -40,8 +40,6 @@ export default function Hero() {
       id="top"
       className="relative flex min-h-[100svh] flex-col items-center justify-center px-5 pt-24 pb-16 text-center sm:px-8"
     >
-      <NeuralGalaxy />
-
       <div className="relative z-10 flex w-full flex-col items-center">
         <div
           style={step(0)}
@@ -68,7 +66,8 @@ export default function Hero() {
           <strong className="font-semibold text-foreground">{siteConfig.promise}</strong> {siteConfig.subheadline}
         </p>
 
-        <div style={step(3)} className="hero-in mt-6 w-full sm:mt-8">
+        <div style={step(3)} className="hero-in relative mt-6 w-full sm:mt-8">
+          <NeuralGalaxy className="inset-x-0 top-1/2 z-[2] h-[230%] -translate-y-1/2 [mask-image:linear-gradient(to_bottom,transparent_0%,#000_26%,#000_74%,transparent_100%)]" />
           <SitesOrbit sites={orbitSites} />
         </div>
 
