@@ -2,9 +2,29 @@ import type { CSSProperties } from "react";
 import { getWhatsAppUrl, siteConfig, WHATSAPP_MESSAGES } from "@/data/site-config";
 import { ArrowRightIcon, CatalogIcon, SystemsIcon, WebIcon, WhatsAppIcon } from "./Icons";
 import NeuralGalaxy from "./NeuralGalaxy";
+import { works } from "@/data/projects";
 import RotatingWord from "./RotatingWord";
+import SitesOrbit from "./SitesOrbit";
 
 const step = (index: number) => ({ "--i": index }) as CSSProperties;
+
+const ORBIT_IDS = [
+  "de-paola",
+  "guapeton",
+  "her-off",
+  "arqcam",
+  "boutique-flower-baskets",
+  "dj-panda",
+  "condes",
+  "reld",
+  "reciclaprop",
+  "christian-sebastian",
+];
+
+const orbitSites = ORBIT_IDS.flatMap((id) => {
+  const work = works.find((item) => item.id === id);
+  return work ? [{ id: work.id, name: work.name, image: work.image, url: work.url }] : [];
+});
 
 const offers = [
   { label: "Páginas web a medida", Icon: WebIcon },
@@ -22,7 +42,7 @@ export default function Hero() {
     >
       <NeuralGalaxy />
 
-      <div className="relative z-10 flex flex-col items-center">
+      <div className="relative z-10 flex w-full flex-col items-center">
         <div
           style={step(0)}
           className="hero-in mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-background-elevated/60 px-4 py-1.5 text-xs font-medium tracking-wide text-muted backdrop-blur-md"
@@ -48,21 +68,13 @@ export default function Hero() {
           <strong className="font-semibold text-foreground">{siteConfig.promise}</strong> {siteConfig.subheadline}
         </p>
 
-        <ul style={step(3)} className="hero-in mt-8 flex flex-wrap items-center justify-center gap-2.5">
-          {offers.map(({ label, Icon }) => (
-            <li
-              key={label}
-              className="flex items-center gap-2 rounded-full border border-border bg-background-elevated/50 px-4 py-2 text-sm font-medium text-foreground/90 backdrop-blur-md"
-            >
-              <Icon className="h-4 w-4 text-violet" />
-              {label}
-            </li>
-          ))}
-        </ul>
+        <div style={step(3)} className="hero-in mt-6 w-full sm:mt-8">
+          <SitesOrbit sites={orbitSites} />
+        </div>
 
         <div
           style={step(4)}
-          className="hero-in mt-10 flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row sm:justify-center"
+          className="hero-in mt-4 flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row sm:justify-center"
         >
           <a
             href={whatsappUrl}
@@ -80,7 +92,19 @@ export default function Hero() {
           </a>
         </div>
 
-        <p style={step(5)} className="hero-in mt-8 max-w-md text-xs leading-relaxed text-muted/70 sm:text-sm">
+        <ul style={step(5)} className="hero-in mt-8 flex flex-wrap items-center justify-center gap-2.5">
+          {offers.map(({ label, Icon }) => (
+            <li
+              key={label}
+              className="flex items-center gap-2 rounded-full border border-border bg-background-elevated/50 px-4 py-2 text-sm font-medium text-foreground/90 backdrop-blur-md"
+            >
+              <Icon className="h-4 w-4 text-violet" />
+              {label}
+            </li>
+          ))}
+        </ul>
+
+        <p style={step(6)} className="hero-in mt-8 max-w-md text-xs leading-relaxed text-muted/70 sm:text-sm">
           Además: automatizaciones de consultas, WhatsApp Bots e IA para atender mejor a tus clientes.
         </p>
       </div>
